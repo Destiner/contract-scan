@@ -28,12 +28,20 @@
         </a>
       </div>
     </BlockStatus>
+    <ScanButton
+      v-if="verification !== null && verification === 'unverified'"
+      :disabled="verifying"
+      class="verify-button"
+      @click="verify"
+    >
+      {{ verifying ? 'Verifying...' : 'Verify' }}
+    </ScanButton>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { Address } from 'viem';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
 import BlockStatus, { type Status } from './BlockStatus.vue';
 
@@ -46,16 +54,48 @@ import {
   getChainName,
   getAddressExplorerUrl,
 } from '@/utils/chains';
-import type { VerificationStatus } from '@/utils/verification';
+import { verifyContract, type VerificationStatus } from '@/utils/verification';
 
-const { address, chain, verification } = defineProps<{
+const emit = defineEmits<{
+  (e: 'verificationUpdate', status: VerificationStatus): void;
+  (e: 'log', message: string): void;
+}>();
+
+const { address, chain, verification, verifiedChains } = defineProps<{
   address: Address;
   chain: Chain;
   status: Status;
   verification: VerificationStatus | null;
+  verifiedChains: Chain[];
 }>();
 
 const explorerUrl = computed(() => getAddressExplorerUrl(chain, address));
+const verifying = ref(false);
+
+async function verify(): Promise<void> {
+  verifying.value = true;
+  let attempts = 0;
+  for (const source of verifiedChains) {
+    emit('log', `Trying ${getChainName(source)} -> ${getChainName(chain)}`);
+    const { success, error } = await verifyContract(address, chain, source);
+    if (success) {
+      emit('verificationUpdate', 'verified');
+      emit(
+        'log',
+        `Verified on ${getChainName(chain)} using ${getChainName(source)}`,
+      );
+      verifying.value = false;
+      return;
+    }
+    if (attempts < 3 && error) {
+      emit('log', `Error: ${error}`);
+    }
+    attempts += 1;
+  }
+  emit('verificationUpdate', 'unverified');
+  emit('log', `Failed to verify on ${getChainName(chain)}`);
+  verifying.value = false;
+}
 </script>
 
 <style scoped>
@@ -88,5 +128,9 @@ a {
 .verification {
   position: absolute;
   left: -20px;
+}
+
+.verify-button {
+  margin-left: 8px;
 }
 </style>
