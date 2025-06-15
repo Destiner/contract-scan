@@ -42,14 +42,17 @@ import IconGitHub from '@/components/__common/icon/GitHub.vue';
   --font-size-small: 14px;
   --font-size-medium: 16px;
   --font-size-big: 20px;
-  --font-sans: 'Inter Variable', -apple-system, 'BlinkMacSystemFont',
-    avenir next, avenir, segoe ui, helvetica neue, helvetica, 'Ubuntu', roboto,
-    noto, arial, sans-serif;
-  --font-serif: 'Iowan Old Style', 'Apple Garamond', 'Baskerville',
-    'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro', serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  --font-mono: 'Inconsolata Variable', 'Menlo', 'Consolas', 'Monaco',
-    'Liberation Mono', 'Lucida Console', monospace;
+  --font-sans:
+    'Inter Variable', -apple-system, 'BlinkMacSystemFont', avenir next, avenir,
+    segoe ui, helvetica neue, helvetica, 'Ubuntu', roboto, noto, arial,
+    sans-serif;
+  --font-serif:
+    'Iowan Old Style', 'Apple Garamond', 'Baskerville', 'Times New Roman',
+    'Droid Serif', 'Times', 'Source Serif Pro', serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-mono:
+    'Inconsolata Variable', 'Menlo', 'Consolas', 'Monaco', 'Liberation Mono',
+    'Lucida Console', monospace;
 }
 
 .app {
