@@ -32,7 +32,22 @@
         <ChainList
           :address
           :chains
+          :verifiedChains="verifiedChains"
+          @updateVerification="updateVerification"
+          @log="addLog"
         />
+        <div
+          v-if="logs.length"
+          class="logs"
+        >
+          <div
+            v-for="(log, i) in logs"
+            :key="i"
+            class="log"
+          >
+            {{ log }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -84,6 +99,10 @@ const verificationStatus = ref<Record<number, VerificationStatus | null>>({});
 const checkedVerifications = computed(
   () => Object.keys(verificationStatus.value).length,
 );
+const verifiedChains = computed(() =>
+  CHAINS.filter((chain) => verificationStatus.value[chain] === 'verified'),
+);
+const logs = ref<string[]>([]);
 async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -101,6 +120,14 @@ async function checkVerification(): Promise<void> {
     verificationStatus.value[chain] = status;
   }
   checkingVerification.value = false;
+}
+
+function updateVerification(chain: Chain, status: VerificationStatus): void {
+  verificationStatus.value[chain] = status;
+}
+
+function addLog(message: string): void {
+  logs.value.push(message);
 }
 
 async function getCodeHash(chain: Chain): Promise<Hex | null | undefined> {
@@ -277,5 +304,13 @@ h1 {
 .verification-status {
   color: var(--color-text-secondary);
   font-size: var(--font-size-small);
+}
+
+.logs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: var(--font-size-small);
+  margin-top: 16px;
 }
 </style>
