@@ -9,6 +9,11 @@ interface CheckVerificationResponse {
 
 type VerificationStatus = 'verified' | 'unverified' | 'unknown';
 
+interface VerifyContractResponse {
+  status: 'ok' | 'error';
+  error?: string;
+}
+
 async function checkContractVerification(
   address: Address,
   chain: Chain,
@@ -28,5 +33,30 @@ async function checkContractVerification(
   return checkResponse.status;
 }
 
-export { checkContractVerification };
+async function verifyContract(
+  address: Address,
+  chain: Chain,
+  sourceChain: Chain,
+): Promise<{ success: boolean; error?: string }> {
+  try {
+    const verifyResponse = await ky
+      .post('/api/verify', {
+        json: {
+          chain: chain.toString(),
+          address,
+          sourceChain: sourceChain.toString(),
+        },
+      })
+      .json<VerifyContractResponse>();
+
+    return {
+      success: verifyResponse.status === 'ok',
+      error: verifyResponse.error,
+    };
+  } catch (err: unknown) {
+    return { success: false, error: (err as Error).message };
+  }
+}
+
+export { checkContractVerification, verifyContract };
 export type { VerificationStatus };
