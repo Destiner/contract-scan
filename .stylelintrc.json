@@ -1,10 +1,6 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-recommended-vue",
-    "stylelint-config-property-sort-order-smacss"
-  ],
-  "rules": {
-    "media-feature-name-allowed-list": ["width", "prefers-color-scheme"]
-  }
+	"extends": ["stylelint-config-recommended-vue"],
+	"rules": {
+		"media-feature-name-allowed-list": ["width", "prefers-color-scheme"]
+	}
 }

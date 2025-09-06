@@ -59,7 +59,7 @@ export default defineNuxtConfig({
       ],
       script: [
         { async: true, src: 'https://cdn.metrical.xyz/script.js' },
-        { children: 'window.metrical = { "app": "NHI_v97CY"}' },
+        { innerHTML: 'window.metrical = { "app": "NHI_v97CY"}' },
       ],
     },
   },
