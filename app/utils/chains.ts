@@ -46,7 +46,6 @@ import {
   fantomTestnet,
   moonbaseAlpha,
   moonbeam,
-  moonriver,
   flare,
   flareTestnet,
   immutableZkEvm,
@@ -69,8 +68,6 @@ import {
   cronos,
   lukso,
   luksoTestnet,
-  kroma,
-  kromaSepolia,
   dfk,
   fraxtal,
   fraxtalTestnet,
@@ -86,7 +83,6 @@ import {
   iotexTestnet,
   meter,
   meterTestnet,
-  metis,
   neonMainnet,
   neonDevnet,
   cyber,
@@ -106,7 +102,6 @@ import {
   wanchain,
   wanchainTestnet,
   zilliqa,
-  zilliqaTestnet,
   morphHolesky,
   lyra,
   seiTestnet,
@@ -118,7 +113,6 @@ import {
   abstractTestnet,
   worldchain,
   worldchainSepolia,
-  odysseyTestnet,
   unichainSepolia,
   unichain,
   inkSepolia,
@@ -168,7 +162,6 @@ const FANTOM = fantom.id;
 const FANTOM_TESTNET = fantomTestnet.id;
 const MOONBASE_ALPHA = moonbaseAlpha.id;
 const MOONBEAM = moonbeam.id;
-const MOONRIVER = moonriver.id;
 const FLARE = flare.id;
 const FLARE_TESTNET = flareTestnet.id;
 const MANTA_PACIFIC = manta.id;
@@ -191,8 +184,6 @@ const OP_BNB = opBNB.id;
 const OP_BNB_TESTNET = opBNBTestnet.id;
 const LUKSO = lukso.id;
 const LUKSO_TESTNET = luksoTestnet.id;
-const KROMA = kroma.id;
-const KROMA_SEPOLIA = kromaSepolia.id;
 const DFK_CHAIN = dfk.id;
 const FRAXTAL = fraxtal.id;
 const FRAXTAL_TESTNET = fraxtalTestnet.id;
@@ -208,7 +199,6 @@ const IOTEX = iotex.id;
 const IOTEX_TESTNET = iotexTestnet.id;
 const METER = meter.id;
 const METER_TESTNET = meterTestnet.id;
-const METIS = metis.id;
 const NEON = neonMainnet.id;
 const NEON_DEVNET = neonDevnet.id;
 const CYBER = cyber.id;
@@ -228,7 +218,6 @@ const TARAXA_TESTNET = taraxaTestnet.id;
 const WANCHAIN = wanchain.id;
 const WANCHAIN_TESTNET = wanchainTestnet.id;
 const ZILLIQA = zilliqa.id;
-const ZILLIQA_TESTNET = zilliqaTestnet.id;
 const MORPH_HOLESKY = morphHolesky.id;
 const LYRA = lyra.id;
 const SEI_TESTNET = seiTestnet.id;
@@ -240,7 +229,6 @@ const SHAPE = shape.id;
 const ABSTRACT_TESTNET = abstractTestnet.id;
 const WORLDCHAIN = worldchain.id;
 const WORLDCHAIN_SEPOLIA = worldchainSepolia.id;
-const ODYSSEY_TESTNET = odysseyTestnet.id;
 const UNICHAIN_SEPOLIA = unichainSepolia.id;
 const UNICHAIN = unichain.id;
 const INK_SEPOLIA = inkSepolia.id;
@@ -290,7 +278,6 @@ type Chain =
   | typeof FANTOM_TESTNET
   | typeof MOONBASE_ALPHA
   | typeof MOONBEAM
-  | typeof MOONRIVER
   | typeof FLARE
   | typeof FLARE_TESTNET
   | typeof MANTA_PACIFIC
@@ -313,8 +300,6 @@ type Chain =
   | typeof OP_BNB_TESTNET
   | typeof LUKSO
   | typeof LUKSO_TESTNET
-  | typeof KROMA
-  | typeof KROMA_SEPOLIA
   | typeof DFK_CHAIN
   | typeof FRAXTAL
   | typeof FRAXTAL_TESTNET
@@ -330,7 +315,6 @@ type Chain =
   | typeof IOTEX_TESTNET
   | typeof METER
   | typeof METER_TESTNET
-  | typeof METIS
   | typeof NEON
   | typeof NEON_DEVNET
   | typeof CYBER
@@ -350,7 +334,6 @@ type Chain =
   | typeof WANCHAIN
   | typeof WANCHAIN_TESTNET
   | typeof ZILLIQA
-  | typeof ZILLIQA_TESTNET
   | typeof MORPH_HOLESKY
   | typeof LYRA
   | typeof SEI_TESTNET
@@ -362,7 +345,6 @@ type Chain =
   | typeof ABSTRACT_TESTNET
   | typeof WORLDCHAIN
   | typeof WORLDCHAIN_SEPOLIA
-  | typeof ODYSSEY_TESTNET
   | typeof UNICHAIN_SEPOLIA
   | typeof UNICHAIN
   | typeof INK_SEPOLIA
@@ -412,7 +394,6 @@ const CHAINS: Chain[] = [
   FANTOM_TESTNET,
   MOONBASE_ALPHA,
   MOONBEAM,
-  MOONRIVER,
   FLARE,
   FLARE_TESTNET,
   MANTA_PACIFIC,
@@ -435,8 +416,6 @@ const CHAINS: Chain[] = [
   OP_BNB_TESTNET,
   LUKSO,
   LUKSO_TESTNET,
-  KROMA,
-  KROMA_SEPOLIA,
   DFK_CHAIN,
   FRAXTAL,
   FRAXTAL_TESTNET,
@@ -452,7 +431,6 @@ const CHAINS: Chain[] = [
   IOTEX_TESTNET,
   METER,
   METER_TESTNET,
-  METIS,
   NEON,
   NEON_DEVNET,
   CYBER,
@@ -472,7 +450,6 @@ const CHAINS: Chain[] = [
   WANCHAIN,
   WANCHAIN_TESTNET,
   ZILLIQA,
-  ZILLIQA_TESTNET,
   MORPH_HOLESKY,
   LYRA,
   SEI_TESTNET,
@@ -484,7 +461,6 @@ const CHAINS: Chain[] = [
   ABSTRACT_TESTNET,
   WORLDCHAIN,
   WORLDCHAIN_SEPOLIA,
-  ODYSSEY_TESTNET,
   UNICHAIN_SEPOLIA,
   UNICHAIN,
   INK_SEPOLIA,
@@ -586,8 +562,6 @@ function getChainData(chain: Chain): ChainData {
       return moonbaseAlpha;
     case MOONBEAM:
       return moonbeam;
-    case MOONRIVER:
-      return moonriver;
     case FLARE:
       return flare;
     case FLARE_TESTNET:
@@ -632,10 +606,6 @@ function getChainData(chain: Chain): ChainData {
       return lukso;
     case LUKSO_TESTNET:
       return luksoTestnet;
-    case KROMA:
-      return kroma;
-    case KROMA_SEPOLIA:
-      return kromaSepolia;
     case DFK_CHAIN:
       return dfk;
     case FRAXTAL:
@@ -666,8 +636,6 @@ function getChainData(chain: Chain): ChainData {
       return meter;
     case METER_TESTNET:
       return meterTestnet;
-    case METIS:
-      return metis;
     case NEON:
       return neonMainnet;
     case NEON_DEVNET:
@@ -706,8 +674,6 @@ function getChainData(chain: Chain): ChainData {
       return wanchainTestnet;
     case ZILLIQA:
       return zilliqa;
-    case ZILLIQA_TESTNET:
-      return zilliqaTestnet;
     case MORPH_HOLESKY:
       return morphHolesky;
     case LYRA:
@@ -730,8 +696,6 @@ function getChainData(chain: Chain): ChainData {
       return worldchain;
     case WORLDCHAIN_SEPOLIA:
       return worldchainSepolia;
-    case ODYSSEY_TESTNET:
-      return odysseyTestnet;
     case UNICHAIN_SEPOLIA:
       return unichainSepolia;
     case UNICHAIN:
