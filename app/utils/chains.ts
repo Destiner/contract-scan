@@ -96,6 +96,9 @@ import {
 	sepolia,
 	shape,
 	shapeSepolia,
+	soneium,
+	sonic,
+	sonicTestnet,
 	syscoin,
 	taiko,
 	taraxa,
@@ -217,6 +220,11 @@ const FORMA = forma.id;
 const SHAPE_SEPOLIA = shapeSepolia.id;
 const SHAPE = shape.id;
 const ABSTRACT_TESTNET = abstractTestnet.id;
+const PLASMA = plasma.id;
+const PLASMA_TESTNET = plasmaTestnet.id;
+const SONIC = sonic.id;
+const SONIC_TESTNET = sonicTestnet.id;
+const SONEIUM = soneium.id;
 const WORLDCHAIN = worldchain.id;
 const WORLDCHAIN_SEPOLIA = worldchainSepolia.id;
 const UNICHAIN_SEPOLIA = unichainSepolia.id;
@@ -226,8 +234,6 @@ const INK = ink.id;
 const ABSTRACT = abstract.id;
 const APE_CHAIN = apeChain.id;
 const DYMENSION = dymension.id;
-const PLASMA = plasma.id;
-const PLASMA_TESTNET = plasmaTestnet.id;
 
 type Chain =
 	| typeof ETHEREUM
@@ -329,6 +335,11 @@ type Chain =
 	| typeof SHAPE_SEPOLIA
 	| typeof SHAPE
 	| typeof ABSTRACT_TESTNET
+	| typeof SONIC
+	| typeof SONIC_TESTNET
+	| typeof SONEIUM
+	| typeof PLASMA
+	| typeof PLASMA_TESTNET
 	| typeof WORLDCHAIN
 	| typeof WORLDCHAIN_SEPOLIA
 	| typeof UNICHAIN_SEPOLIA
@@ -337,9 +348,7 @@ type Chain =
 	| typeof INK
 	| typeof ABSTRACT
 	| typeof APE_CHAIN
-	| typeof DYMENSION
-	| typeof PLASMA
-	| typeof PLASMA_TESTNET;
+	| typeof DYMENSION;
 
 const CHAINS: Chain[] = [
 	ETHEREUM,
@@ -441,6 +450,11 @@ const CHAINS: Chain[] = [
 	SHAPE_SEPOLIA,
 	SHAPE,
 	ABSTRACT_TESTNET,
+	SONIC,
+	SONIC_TESTNET,
+	SONEIUM,
+	PLASMA,
+	PLASMA_TESTNET,
 	WORLDCHAIN,
 	WORLDCHAIN_SEPOLIA,
 	UNICHAIN_SEPOLIA,
@@ -450,8 +464,6 @@ const CHAINS: Chain[] = [
 	ABSTRACT,
 	APE_CHAIN,
 	DYMENSION,
-	PLASMA,
-	PLASMA_TESTNET,
 ];
 
 function getChainEndpointUrl(chain: Chain): string | null {
@@ -664,6 +676,16 @@ function getChainData(chain: Chain): ChainData {
 			return shape;
 		case ABSTRACT_TESTNET:
 			return abstractTestnet;
+		case SONIC:
+			return sonic;
+		case SONIC_TESTNET:
+			return sonicTestnet;
+		case SONEIUM:
+			return soneium;
+		case PLASMA:
+			return plasma;
+		case PLASMA_TESTNET:
+			return plasmaTestnet;
 		case WORLDCHAIN:
 			return worldchain;
 		case WORLDCHAIN_SEPOLIA:
@@ -682,10 +704,6 @@ function getChainData(chain: Chain): ChainData {
 			return apeChain;
 		case DYMENSION:
 			return dymension;
-		case PLASMA:
-			return plasma;
-		case PLASMA_TESTNET:
-			return plasmaTestnet;
 	}
 }
 
