@@ -1,125 +1,122 @@
 import {
-	http,
-	type Address,
-	type Chain as ChainData,
-	type Hex,
-	createPublicClient,
-} from "viem";
+  http,
+  type Address,
+  type Chain as ChainData,
+  type Hex,
+  createPublicClient,
+} from 'viem';
 import {
-	abstract,
-	abstractTestnet,
-	apeChain,
-	arbitrum,
-	arbitrumNova,
-	arbitrumSepolia,
-	aurora,
-	auroraTestnet,
-	avalanche,
-	avalancheFuji,
-	base,
-	baseSepolia,
-	beam,
-	beamTestnet,
-	blast,
-	blastSepolia,
-	boba,
-	bobaSepolia,
-	bsc,
-	bscTestnet,
-	celo,
-	cronos,
-	cyber,
-	cyberTestnet,
-	degen,
-	dfk,
-	dymension,
-	fantom,
-	fantomTestnet,
-	flare,
-	flareTestnet,
-	forma,
-	fraxtal,
-	fraxtalTestnet,
-	fuse,
-	fuseSparknet,
-	gnosis,
-	gnosisChiado,
-	harmonyOne,
-	hedera,
-	hederaTestnet,
-	immutableZkEvm,
-	immutableZkEvmTestnet,
-	ink,
-	inkSepolia,
-	iotex,
-	iotexTestnet,
-	kava,
-	kavaTestnet,
-	linea,
-	lineaSepolia,
-	lukso,
-	luksoTestnet,
-	lycan,
-	lyra,
-	mainnet,
-	manta,
-	mantaSepoliaTestnet,
-	mantle,
-	mantleSepoliaTestnet,
-	meter,
-	meterTestnet,
-	mode,
-	modeTestnet,
-	moonbaseAlpha,
-	morphHolesky,
-	neonDevnet,
-	neonMainnet,
-	opBNB,
-	opBNBTestnet,
-	optimism,
-	optimismSepolia,
-	plasma,
-	plasmaTestnet,
-	polygon,
-	polygonAmoy,
-	polygonZkEvm,
-	polygonZkEvmCardona,
-	redstone,
-	rollux,
-	sapphire,
-	sapphireTestnet,
-	scroll,
-	scrollSepolia,
-	sei,
-	seiDevnet,
-	seiTestnet,
-	sepolia,
-	shape,
-	shapeSepolia,
-	soneium,
-	sonic,
-	sonicTestnet,
-	syscoin,
-	taiko,
-	taraxa,
-	taraxaTestnet,
-	unichain,
-	unichainSepolia,
-	wanchain,
-	wanchainTestnet,
-	worldchain,
-	worldchainSepolia,
-	xai,
-	xaiTestnet,
-	zetachain,
-	zetachainAthensTestnet,
-	zilliqa,
-	zkLinkNova,
-	zksync,
-	zksyncSepoliaTestnet,
-	zora,
-	zoraSepolia,
-} from "viem/chains";
+  abstract,
+  abstractTestnet,
+  apeChain,
+  arbitrum,
+  arbitrumNova,
+  arbitrumSepolia,
+  aurora,
+  auroraTestnet,
+  avalanche,
+  avalancheFuji,
+  base,
+  baseSepolia,
+  beam,
+  beamTestnet,
+  blast,
+  blastSepolia,
+  boba,
+  bobaSepolia,
+  bsc,
+  bscTestnet,
+  celo,
+  cronos,
+  cyber,
+  cyberTestnet,
+  degen,
+  dfk,
+  dymension,
+  fantom,
+  fantomTestnet,
+  flare,
+  flareTestnet,
+  forma,
+  fraxtal,
+  fraxtalTestnet,
+  fuse,
+  fuseSparknet,
+  gnosis,
+  gnosisChiado,
+  harmonyOne,
+  hedera,
+  hederaTestnet,
+  immutableZkEvm,
+  immutableZkEvmTestnet,
+  ink,
+  inkSepolia,
+  iotex,
+  iotexTestnet,
+  kava,
+  kavaTestnet,
+  linea,
+  lineaSepolia,
+  lukso,
+  luksoTestnet,
+  lycan,
+  lyra,
+  mainnet,
+  manta,
+  mantaSepoliaTestnet,
+  mantle,
+  mantleSepoliaTestnet,
+  meter,
+  mode,
+  modeTestnet,
+  moonbaseAlpha,
+  neonDevnet,
+  neonMainnet,
+  opBNB,
+  opBNBTestnet,
+  optimism,
+  optimismSepolia,
+  plasma,
+  plasmaTestnet,
+  polygon,
+  polygonAmoy,
+  polygonZkEvm,
+  polygonZkEvmCardona,
+  redstone,
+  rollux,
+  sapphire,
+  sapphireTestnet,
+  scroll,
+  scrollSepolia,
+  sei,
+  seiDevnet,
+  seiTestnet,
+  sepolia,
+  shape,
+  shapeSepolia,
+  soneium,
+  sonic,
+  sonicTestnet,
+  syscoin,
+  taiko,
+  taraxa,
+  unichain,
+  unichainSepolia,
+  wanchain,
+  wanchainTestnet,
+  worldchain,
+  worldchainSepolia,
+  xai,
+  xaiTestnet,
+  zetachain,
+  zetachainAthensTestnet,
+  zilliqa,
+  zkLinkNova,
+  zksync,
+  zksyncSepoliaTestnet,
+  zora,
+  zoraSepolia,
+} from 'viem/chains';
 
 const ETHEREUM = mainnet.id;
 const SEPOLIA = sepolia.id;
@@ -191,7 +188,6 @@ const HEDERA_TESTNET = hederaTestnet.id;
 const IOTEX = iotex.id;
 const IOTEX_TESTNET = iotexTestnet.id;
 const METER = meter.id;
-const METER_TESTNET = meterTestnet.id;
 const NEON = neonMainnet.id;
 const NEON_DEVNET = neonDevnet.id;
 const CYBER = cyber.id;
@@ -207,11 +203,9 @@ const SAPPHIRE = sapphire.id;
 const SAPPHIRE_TESTNET = sapphireTestnet.id;
 const SYSCOIN = syscoin.id;
 const TARAXA = taraxa.id;
-const TARAXA_TESTNET = taraxaTestnet.id;
 const WANCHAIN = wanchain.id;
 const WANCHAIN_TESTNET = wanchainTestnet.id;
 const ZILLIQA = zilliqa.id;
-const MORPH_HOLESKY = morphHolesky.id;
 const LYRA = lyra.id;
 const SEI_TESTNET = seiTestnet.id;
 const ZK_LINK_NOVA = zkLinkNova.id;
@@ -236,518 +230,506 @@ const APE_CHAIN = apeChain.id;
 const DYMENSION = dymension.id;
 
 type Chain =
-	| typeof ETHEREUM
-	| typeof SEPOLIA
-	| typeof ARBITRUM
-	| typeof ARBITRUM_NOVA
-	| typeof ARBITRUM_SEPOLIA
-	| typeof OPTIMISM
-	| typeof OPTIMISM_SEPOLIA
-	| typeof BASE
-	| typeof BASE_SEPOLIA
-	| typeof ZORA
-	| typeof ZORA_SEPOLIA
-	| typeof POLYGON
-	| typeof POLYGON_AMOY
-	| typeof POLYGON_ZKEVM
-	| typeof POLYGON_ZKEVM_CARDONA
-	| typeof AVALANCHE
-	| typeof AVALANCHE_FUJI
-	| typeof GNOSIS
-	| typeof GNOSIS_CHIADO
-	| typeof SCROLL
-	| typeof SCROLL_SEPOLIA
-	| typeof ZKSYNC_ERA
-	| typeof ZKSYNC_ERA_SEPOLIA
-	| typeof CELO
-	| typeof LINEA
-	| typeof LINEA_SEPOLIA
-	| typeof BLAST
-	| typeof BLAST_SEPOLIA
-	| typeof MANTLE
-	| typeof MANTLE_SEPOLIA
-	| typeof MODE
-	| typeof MODE_SEPOLIA
-	| typeof BSC
-	| typeof BSC_TESTNET
-	| typeof FANTOM
-	| typeof FANTOM_TESTNET
-	| typeof MOONBASE_ALPHA
-	| typeof FLARE
-	| typeof FLARE_TESTNET
-	| typeof MANTA_PACIFIC
-	| typeof MANTA_PACIFIC_SEPOLIA
-	| typeof KAVA
-	| typeof KAVA_TESTNET
-	| typeof TAIKO
-	| typeof IMMUTABLE_ZKEVM
-	| typeof IMMUTABLE_ZKEVM_TESTNET
-	| typeof BOBA_ETHEREUM
-	| typeof AURORA
-	| typeof AURORA_TESTNET
-	| typeof DEGEN
-	| typeof HARMONY
-	| typeof CRONOS
-	| typeof OP_BNB
-	| typeof OP_BNB_TESTNET
-	| typeof LUKSO
-	| typeof LUKSO_TESTNET
-	| typeof DFK_CHAIN
-	| typeof FRAXTAL
-	| typeof FRAXTAL_TESTNET
-	| typeof FUSE
-	| typeof FUSE_SPARKNET
-	| typeof ZETACHAIN
-	| typeof ZETACHAIN_ATHENS
-	| typeof BEAM
-	| typeof BEAM_TESTNET
-	| typeof HEDERA
-	| typeof HEDERA_TESTNET
-	| typeof IOTEX
-	| typeof IOTEX_TESTNET
-	| typeof METER
-	| typeof METER_TESTNET
-	| typeof NEON
-	| typeof NEON_DEVNET
-	| typeof CYBER
-	| typeof CYBER_TESTNET
-	| typeof REDSTONE
-	| typeof LYCAN
-	| typeof SEI
-	| typeof SEI_DEVNET
-	| typeof XAI
-	| typeof XAI_TESTNET
-	| typeof ROLLUX
-	| typeof SAPPHIRE
-	| typeof SAPPHIRE_TESTNET
-	| typeof SYSCOIN
-	| typeof TARAXA
-	| typeof TARAXA_TESTNET
-	| typeof WANCHAIN
-	| typeof WANCHAIN_TESTNET
-	| typeof ZILLIQA
-	| typeof MORPH_HOLESKY
-	| typeof LYRA
-	| typeof SEI_TESTNET
-	| typeof ZK_LINK_NOVA
-	| typeof BOBA_SEPOLIA
-	| typeof FORMA
-	| typeof SHAPE_SEPOLIA
-	| typeof SHAPE
-	| typeof ABSTRACT_TESTNET
-	| typeof SONIC
-	| typeof SONIC_TESTNET
-	| typeof SONEIUM
-	| typeof PLASMA
-	| typeof PLASMA_TESTNET
-	| typeof WORLDCHAIN
-	| typeof WORLDCHAIN_SEPOLIA
-	| typeof UNICHAIN_SEPOLIA
-	| typeof UNICHAIN
-	| typeof INK_SEPOLIA
-	| typeof INK
-	| typeof ABSTRACT
-	| typeof APE_CHAIN
-	| typeof DYMENSION;
+  | typeof ETHEREUM
+  | typeof SEPOLIA
+  | typeof ARBITRUM
+  | typeof ARBITRUM_NOVA
+  | typeof ARBITRUM_SEPOLIA
+  | typeof OPTIMISM
+  | typeof OPTIMISM_SEPOLIA
+  | typeof BASE
+  | typeof BASE_SEPOLIA
+  | typeof ZORA
+  | typeof ZORA_SEPOLIA
+  | typeof POLYGON
+  | typeof POLYGON_AMOY
+  | typeof POLYGON_ZKEVM
+  | typeof POLYGON_ZKEVM_CARDONA
+  | typeof AVALANCHE
+  | typeof AVALANCHE_FUJI
+  | typeof GNOSIS
+  | typeof GNOSIS_CHIADO
+  | typeof SCROLL
+  | typeof SCROLL_SEPOLIA
+  | typeof ZKSYNC_ERA
+  | typeof ZKSYNC_ERA_SEPOLIA
+  | typeof CELO
+  | typeof LINEA
+  | typeof LINEA_SEPOLIA
+  | typeof BLAST
+  | typeof BLAST_SEPOLIA
+  | typeof MANTLE
+  | typeof MANTLE_SEPOLIA
+  | typeof MODE
+  | typeof MODE_SEPOLIA
+  | typeof BSC
+  | typeof BSC_TESTNET
+  | typeof FANTOM
+  | typeof FANTOM_TESTNET
+  | typeof MOONBASE_ALPHA
+  | typeof FLARE
+  | typeof FLARE_TESTNET
+  | typeof MANTA_PACIFIC
+  | typeof MANTA_PACIFIC_SEPOLIA
+  | typeof KAVA
+  | typeof KAVA_TESTNET
+  | typeof TAIKO
+  | typeof IMMUTABLE_ZKEVM
+  | typeof IMMUTABLE_ZKEVM_TESTNET
+  | typeof BOBA_ETHEREUM
+  | typeof AURORA
+  | typeof AURORA_TESTNET
+  | typeof DEGEN
+  | typeof HARMONY
+  | typeof CRONOS
+  | typeof OP_BNB
+  | typeof OP_BNB_TESTNET
+  | typeof LUKSO
+  | typeof LUKSO_TESTNET
+  | typeof DFK_CHAIN
+  | typeof FRAXTAL
+  | typeof FRAXTAL_TESTNET
+  | typeof FUSE
+  | typeof FUSE_SPARKNET
+  | typeof ZETACHAIN
+  | typeof ZETACHAIN_ATHENS
+  | typeof BEAM
+  | typeof BEAM_TESTNET
+  | typeof HEDERA
+  | typeof HEDERA_TESTNET
+  | typeof IOTEX
+  | typeof IOTEX_TESTNET
+  | typeof METER
+  | typeof NEON
+  | typeof NEON_DEVNET
+  | typeof CYBER
+  | typeof CYBER_TESTNET
+  | typeof REDSTONE
+  | typeof LYCAN
+  | typeof SEI
+  | typeof SEI_DEVNET
+  | typeof XAI
+  | typeof XAI_TESTNET
+  | typeof ROLLUX
+  | typeof SAPPHIRE
+  | typeof SAPPHIRE_TESTNET
+  | typeof SYSCOIN
+  | typeof TARAXA
+  | typeof WANCHAIN
+  | typeof WANCHAIN_TESTNET
+  | typeof ZILLIQA
+  | typeof LYRA
+  | typeof SEI_TESTNET
+  | typeof ZK_LINK_NOVA
+  | typeof BOBA_SEPOLIA
+  | typeof FORMA
+  | typeof SHAPE_SEPOLIA
+  | typeof SHAPE
+  | typeof ABSTRACT_TESTNET
+  | typeof SONIC
+  | typeof SONIC_TESTNET
+  | typeof SONEIUM
+  | typeof PLASMA
+  | typeof PLASMA_TESTNET
+  | typeof WORLDCHAIN
+  | typeof WORLDCHAIN_SEPOLIA
+  | typeof UNICHAIN_SEPOLIA
+  | typeof UNICHAIN
+  | typeof INK_SEPOLIA
+  | typeof INK
+  | typeof ABSTRACT
+  | typeof APE_CHAIN
+  | typeof DYMENSION;
 
 const CHAINS: Chain[] = [
-	ETHEREUM,
-	SEPOLIA,
-	ARBITRUM,
-	ARBITRUM_NOVA,
-	ARBITRUM_SEPOLIA,
-	OPTIMISM,
-	OPTIMISM_SEPOLIA,
-	BASE,
-	BASE_SEPOLIA,
-	ZORA,
-	ZORA_SEPOLIA,
-	POLYGON,
-	POLYGON_AMOY,
-	POLYGON_ZKEVM,
-	POLYGON_ZKEVM_CARDONA,
-	AVALANCHE,
-	AVALANCHE_FUJI,
-	GNOSIS,
-	GNOSIS_CHIADO,
-	SCROLL,
-	SCROLL_SEPOLIA,
-	ZKSYNC_ERA,
-	ZKSYNC_ERA_SEPOLIA,
-	CELO,
-	LINEA,
-	LINEA_SEPOLIA,
-	BLAST,
-	BLAST_SEPOLIA,
-	MANTLE,
-	MANTLE_SEPOLIA,
-	MODE,
-	MODE_SEPOLIA,
-	BSC,
-	BSC_TESTNET,
-	FANTOM,
-	FANTOM_TESTNET,
-	MOONBASE_ALPHA,
-	FLARE,
-	FLARE_TESTNET,
-	MANTA_PACIFIC,
-	MANTA_PACIFIC_SEPOLIA,
-	KAVA,
-	KAVA_TESTNET,
-	TAIKO,
-	IMMUTABLE_ZKEVM,
-	IMMUTABLE_ZKEVM_TESTNET,
-	BOBA_ETHEREUM,
-	AURORA,
-	AURORA_TESTNET,
-	DEGEN,
-	HARMONY,
-	CRONOS,
-	OP_BNB,
-	OP_BNB_TESTNET,
-	LUKSO,
-	LUKSO_TESTNET,
-	DFK_CHAIN,
-	FRAXTAL,
-	FRAXTAL_TESTNET,
-	FUSE,
-	FUSE_SPARKNET,
-	ZETACHAIN,
-	ZETACHAIN_ATHENS,
-	BEAM,
-	BEAM_TESTNET,
-	HEDERA,
-	HEDERA_TESTNET,
-	IOTEX,
-	IOTEX_TESTNET,
-	METER,
-	METER_TESTNET,
-	NEON,
-	NEON_DEVNET,
-	CYBER,
-	CYBER_TESTNET,
-	REDSTONE,
-	LYCAN,
-	SEI,
-	SEI_DEVNET,
-	XAI,
-	XAI_TESTNET,
-	ROLLUX,
-	SAPPHIRE,
-	SAPPHIRE_TESTNET,
-	SYSCOIN,
-	TARAXA,
-	TARAXA_TESTNET,
-	WANCHAIN,
-	WANCHAIN_TESTNET,
-	ZILLIQA,
-	MORPH_HOLESKY,
-	LYRA,
-	SEI_TESTNET,
-	ZK_LINK_NOVA,
-	BOBA_SEPOLIA,
-	FORMA,
-	SHAPE_SEPOLIA,
-	SHAPE,
-	ABSTRACT_TESTNET,
-	SONIC,
-	SONIC_TESTNET,
-	SONEIUM,
-	PLASMA,
-	PLASMA_TESTNET,
-	WORLDCHAIN,
-	WORLDCHAIN_SEPOLIA,
-	UNICHAIN_SEPOLIA,
-	UNICHAIN,
-	INK_SEPOLIA,
-	INK,
-	ABSTRACT,
-	APE_CHAIN,
-	DYMENSION,
+  ETHEREUM,
+  SEPOLIA,
+  ARBITRUM,
+  ARBITRUM_NOVA,
+  ARBITRUM_SEPOLIA,
+  OPTIMISM,
+  OPTIMISM_SEPOLIA,
+  BASE,
+  BASE_SEPOLIA,
+  ZORA,
+  ZORA_SEPOLIA,
+  POLYGON,
+  POLYGON_AMOY,
+  POLYGON_ZKEVM,
+  POLYGON_ZKEVM_CARDONA,
+  AVALANCHE,
+  AVALANCHE_FUJI,
+  GNOSIS,
+  GNOSIS_CHIADO,
+  SCROLL,
+  SCROLL_SEPOLIA,
+  ZKSYNC_ERA,
+  ZKSYNC_ERA_SEPOLIA,
+  CELO,
+  LINEA,
+  LINEA_SEPOLIA,
+  BLAST,
+  BLAST_SEPOLIA,
+  MANTLE,
+  MANTLE_SEPOLIA,
+  MODE,
+  MODE_SEPOLIA,
+  BSC,
+  BSC_TESTNET,
+  FANTOM,
+  FANTOM_TESTNET,
+  MOONBASE_ALPHA,
+  FLARE,
+  FLARE_TESTNET,
+  MANTA_PACIFIC,
+  MANTA_PACIFIC_SEPOLIA,
+  KAVA,
+  KAVA_TESTNET,
+  TAIKO,
+  IMMUTABLE_ZKEVM,
+  IMMUTABLE_ZKEVM_TESTNET,
+  BOBA_ETHEREUM,
+  AURORA,
+  AURORA_TESTNET,
+  DEGEN,
+  HARMONY,
+  CRONOS,
+  OP_BNB,
+  OP_BNB_TESTNET,
+  LUKSO,
+  LUKSO_TESTNET,
+  DFK_CHAIN,
+  FRAXTAL,
+  FRAXTAL_TESTNET,
+  FUSE,
+  FUSE_SPARKNET,
+  ZETACHAIN,
+  ZETACHAIN_ATHENS,
+  BEAM,
+  BEAM_TESTNET,
+  HEDERA,
+  HEDERA_TESTNET,
+  IOTEX,
+  IOTEX_TESTNET,
+  METER,
+  NEON,
+  NEON_DEVNET,
+  CYBER,
+  CYBER_TESTNET,
+  REDSTONE,
+  LYCAN,
+  SEI,
+  SEI_DEVNET,
+  XAI,
+  XAI_TESTNET,
+  ROLLUX,
+  SAPPHIRE,
+  SAPPHIRE_TESTNET,
+  SYSCOIN,
+  TARAXA,
+  WANCHAIN,
+  WANCHAIN_TESTNET,
+  ZILLIQA,
+  LYRA,
+  SEI_TESTNET,
+  ZK_LINK_NOVA,
+  BOBA_SEPOLIA,
+  FORMA,
+  SHAPE_SEPOLIA,
+  SHAPE,
+  ABSTRACT_TESTNET,
+  SONIC,
+  SONIC_TESTNET,
+  SONEIUM,
+  PLASMA,
+  PLASMA_TESTNET,
+  WORLDCHAIN,
+  WORLDCHAIN_SEPOLIA,
+  UNICHAIN_SEPOLIA,
+  UNICHAIN,
+  INK_SEPOLIA,
+  INK,
+  ABSTRACT,
+  APE_CHAIN,
+  DYMENSION,
 ];
 
 function getChainEndpointUrl(chain: Chain): string | null {
-	const chainData = getChainData(chain);
-	return chainData.rpcUrls.default.http[0] || null;
+  const chainData = getChainData(chain);
+  return chainData.rpcUrls.default.http[0] || null;
 }
 
 function getChainName(chain: Chain): string {
-	const chainData = getChainData(chain);
-	return chainData.name;
+  const chainData = getChainData(chain);
+  return chainData.name;
 }
 
 function getChainData(chain: Chain): ChainData {
-	switch (chain) {
-		case ETHEREUM:
-			return mainnet;
-		case SEPOLIA:
-			return sepolia;
-		case ARBITRUM:
-			return arbitrum;
-		case ARBITRUM_NOVA:
-			return arbitrumNova;
-		case ARBITRUM_SEPOLIA:
-			return arbitrumSepolia;
-		case OPTIMISM:
-			return optimism;
-		case OPTIMISM_SEPOLIA:
-			return optimismSepolia;
-		case BASE:
-			return base;
-		case BASE_SEPOLIA:
-			return baseSepolia;
-		case ZORA:
-			return zora;
-		case ZORA_SEPOLIA:
-			return zoraSepolia;
-		case POLYGON:
-			return polygon;
-		case POLYGON_AMOY:
-			return polygonAmoy;
-		case POLYGON_ZKEVM:
-			return polygonZkEvm;
-		case POLYGON_ZKEVM_CARDONA:
-			return polygonZkEvmCardona;
-		case AVALANCHE:
-			return avalanche;
-		case AVALANCHE_FUJI:
-			return avalancheFuji;
-		case GNOSIS:
-			return gnosis;
-		case GNOSIS_CHIADO:
-			return gnosisChiado;
-		case SCROLL:
-			return scroll;
-		case SCROLL_SEPOLIA:
-			return scrollSepolia;
-		case ZKSYNC_ERA:
-			return zksync;
-		case ZKSYNC_ERA_SEPOLIA:
-			return zksyncSepoliaTestnet;
-		case CELO:
-			return celo;
-		case LINEA:
-			return linea;
-		case LINEA_SEPOLIA:
-			return lineaSepolia;
-		case BLAST:
-			return blast;
-		case BLAST_SEPOLIA:
-			return blastSepolia;
-		case MANTLE:
-			return mantle;
-		case MANTLE_SEPOLIA:
-			return mantleSepoliaTestnet;
-		case MODE:
-			return mode;
-		case MODE_SEPOLIA:
-			return modeTestnet;
-		case BSC:
-			return bsc;
-		case BSC_TESTNET:
-			return bscTestnet;
-		case FANTOM:
-			return fantom;
-		case FANTOM_TESTNET:
-			return fantomTestnet;
-		case MOONBASE_ALPHA:
-			return moonbaseAlpha;
-		case FLARE:
-			return flare;
-		case FLARE_TESTNET:
-			return flareTestnet;
-		case MANTA_PACIFIC:
-			return manta;
-		case MANTA_PACIFIC_SEPOLIA:
-			return mantaSepoliaTestnet;
-		case KAVA:
-			return kava;
-		case KAVA_TESTNET:
-			return kavaTestnet;
-		case TAIKO:
-			return taiko;
-		case IMMUTABLE_ZKEVM:
-			return immutableZkEvm;
-		case IMMUTABLE_ZKEVM_TESTNET:
-			return immutableZkEvmTestnet;
-		case BOBA_ETHEREUM:
-			return boba;
-		case AURORA:
-			return aurora;
-		case AURORA_TESTNET:
-			return auroraTestnet;
-		case DEGEN:
-			return degen;
-		case HARMONY:
-			return harmonyOne;
-		case CRONOS:
-			return cronos;
-		case OP_BNB:
-			return opBNB;
-		case OP_BNB_TESTNET:
-			return opBNBTestnet;
-		case LUKSO:
-			return lukso;
-		case LUKSO_TESTNET:
-			return luksoTestnet;
-		case DFK_CHAIN:
-			return dfk;
-		case FRAXTAL:
-			return fraxtal;
-		case FRAXTAL_TESTNET:
-			return fraxtalTestnet;
-		case FUSE:
-			return fuse;
-		case FUSE_SPARKNET:
-			return fuseSparknet;
-		case ZETACHAIN:
-			return zetachain;
-		case ZETACHAIN_ATHENS:
-			return zetachainAthensTestnet;
-		case BEAM:
-			return beam;
-		case BEAM_TESTNET:
-			return beamTestnet;
-		case HEDERA:
-			return hedera;
-		case HEDERA_TESTNET:
-			return hederaTestnet;
-		case IOTEX:
-			return iotex;
-		case IOTEX_TESTNET:
-			return iotexTestnet;
-		case METER:
-			return meter;
-		case METER_TESTNET:
-			return meterTestnet;
-		case NEON:
-			return neonMainnet;
-		case NEON_DEVNET:
-			return neonDevnet;
-		case CYBER:
-			return cyber;
-		case CYBER_TESTNET:
-			return cyberTestnet;
-		case REDSTONE:
-			return redstone;
-		case LYCAN:
-			return lycan;
-		case SEI:
-			return sei;
-		case SEI_DEVNET:
-			return seiDevnet;
-		case XAI:
-			return xai;
-		case XAI_TESTNET:
-			return xaiTestnet;
-		case ROLLUX:
-			return rollux;
-		case SAPPHIRE:
-			return sapphire;
-		case SAPPHIRE_TESTNET:
-			return sapphireTestnet;
-		case SYSCOIN:
-			return syscoin;
-		case TARAXA:
-			return taraxa;
-		case TARAXA_TESTNET:
-			return taraxaTestnet;
-		case WANCHAIN:
-			return wanchain;
-		case WANCHAIN_TESTNET:
-			return wanchainTestnet;
-		case ZILLIQA:
-			return zilliqa;
-		case MORPH_HOLESKY:
-			return morphHolesky;
-		case LYRA:
-			return lyra;
-		case SEI_TESTNET:
-			return seiTestnet;
-		case ZK_LINK_NOVA:
-			return zkLinkNova;
-		case BOBA_SEPOLIA:
-			return bobaSepolia;
-		case FORMA:
-			return forma;
-		case SHAPE_SEPOLIA:
-			return shapeSepolia;
-		case SHAPE:
-			return shape;
-		case ABSTRACT_TESTNET:
-			return abstractTestnet;
-		case SONIC:
-			return sonic;
-		case SONIC_TESTNET:
-			return sonicTestnet;
-		case SONEIUM:
-			return soneium;
-		case PLASMA:
-			return plasma;
-		case PLASMA_TESTNET:
-			return plasmaTestnet;
-		case WORLDCHAIN:
-			return worldchain;
-		case WORLDCHAIN_SEPOLIA:
-			return worldchainSepolia;
-		case UNICHAIN_SEPOLIA:
-			return unichainSepolia;
-		case UNICHAIN:
-			return unichain;
-		case INK_SEPOLIA:
-			return inkSepolia;
-		case INK:
-			return ink;
-		case ABSTRACT:
-			return abstract;
-		case APE_CHAIN:
-			return apeChain;
-		case DYMENSION:
-			return dymension;
-	}
+  switch (chain) {
+    case ETHEREUM:
+      return mainnet;
+    case SEPOLIA:
+      return sepolia;
+    case ARBITRUM:
+      return arbitrum;
+    case ARBITRUM_NOVA:
+      return arbitrumNova;
+    case ARBITRUM_SEPOLIA:
+      return arbitrumSepolia;
+    case OPTIMISM:
+      return optimism;
+    case OPTIMISM_SEPOLIA:
+      return optimismSepolia;
+    case BASE:
+      return base;
+    case BASE_SEPOLIA:
+      return baseSepolia;
+    case ZORA:
+      return zora;
+    case ZORA_SEPOLIA:
+      return zoraSepolia;
+    case POLYGON:
+      return polygon;
+    case POLYGON_AMOY:
+      return polygonAmoy;
+    case POLYGON_ZKEVM:
+      return polygonZkEvm;
+    case POLYGON_ZKEVM_CARDONA:
+      return polygonZkEvmCardona;
+    case AVALANCHE:
+      return avalanche;
+    case AVALANCHE_FUJI:
+      return avalancheFuji;
+    case GNOSIS:
+      return gnosis;
+    case GNOSIS_CHIADO:
+      return gnosisChiado;
+    case SCROLL:
+      return scroll;
+    case SCROLL_SEPOLIA:
+      return scrollSepolia;
+    case ZKSYNC_ERA:
+      return zksync;
+    case ZKSYNC_ERA_SEPOLIA:
+      return zksyncSepoliaTestnet;
+    case CELO:
+      return celo;
+    case LINEA:
+      return linea;
+    case LINEA_SEPOLIA:
+      return lineaSepolia;
+    case BLAST:
+      return blast;
+    case BLAST_SEPOLIA:
+      return blastSepolia;
+    case MANTLE:
+      return mantle;
+    case MANTLE_SEPOLIA:
+      return mantleSepoliaTestnet;
+    case MODE:
+      return mode;
+    case MODE_SEPOLIA:
+      return modeTestnet;
+    case BSC:
+      return bsc;
+    case BSC_TESTNET:
+      return bscTestnet;
+    case FANTOM:
+      return fantom;
+    case FANTOM_TESTNET:
+      return fantomTestnet;
+    case MOONBASE_ALPHA:
+      return moonbaseAlpha;
+    case FLARE:
+      return flare;
+    case FLARE_TESTNET:
+      return flareTestnet;
+    case MANTA_PACIFIC:
+      return manta;
+    case MANTA_PACIFIC_SEPOLIA:
+      return mantaSepoliaTestnet;
+    case KAVA:
+      return kava;
+    case KAVA_TESTNET:
+      return kavaTestnet;
+    case TAIKO:
+      return taiko;
+    case IMMUTABLE_ZKEVM:
+      return immutableZkEvm;
+    case IMMUTABLE_ZKEVM_TESTNET:
+      return immutableZkEvmTestnet;
+    case BOBA_ETHEREUM:
+      return boba;
+    case AURORA:
+      return aurora;
+    case AURORA_TESTNET:
+      return auroraTestnet;
+    case DEGEN:
+      return degen;
+    case HARMONY:
+      return harmonyOne;
+    case CRONOS:
+      return cronos;
+    case OP_BNB:
+      return opBNB;
+    case OP_BNB_TESTNET:
+      return opBNBTestnet;
+    case LUKSO:
+      return lukso;
+    case LUKSO_TESTNET:
+      return luksoTestnet;
+    case DFK_CHAIN:
+      return dfk;
+    case FRAXTAL:
+      return fraxtal;
+    case FRAXTAL_TESTNET:
+      return fraxtalTestnet;
+    case FUSE:
+      return fuse;
+    case FUSE_SPARKNET:
+      return fuseSparknet;
+    case ZETACHAIN:
+      return zetachain;
+    case ZETACHAIN_ATHENS:
+      return zetachainAthensTestnet;
+    case BEAM:
+      return beam;
+    case BEAM_TESTNET:
+      return beamTestnet;
+    case HEDERA:
+      return hedera;
+    case HEDERA_TESTNET:
+      return hederaTestnet;
+    case IOTEX:
+      return iotex;
+    case IOTEX_TESTNET:
+      return iotexTestnet;
+    case METER:
+      return meter;
+    case NEON:
+      return neonMainnet;
+    case NEON_DEVNET:
+      return neonDevnet;
+    case CYBER:
+      return cyber;
+    case CYBER_TESTNET:
+      return cyberTestnet;
+    case REDSTONE:
+      return redstone;
+    case LYCAN:
+      return lycan;
+    case SEI:
+      return sei;
+    case SEI_DEVNET:
+      return seiDevnet;
+    case XAI:
+      return xai;
+    case XAI_TESTNET:
+      return xaiTestnet;
+    case ROLLUX:
+      return rollux;
+    case SAPPHIRE:
+      return sapphire;
+    case SAPPHIRE_TESTNET:
+      return sapphireTestnet;
+    case SYSCOIN:
+      return syscoin;
+    case TARAXA:
+      return taraxa;
+    case WANCHAIN:
+      return wanchain;
+    case WANCHAIN_TESTNET:
+      return wanchainTestnet;
+    case ZILLIQA:
+      return zilliqa;
+    case LYRA:
+      return lyra;
+    case SEI_TESTNET:
+      return seiTestnet;
+    case ZK_LINK_NOVA:
+      return zkLinkNova;
+    case BOBA_SEPOLIA:
+      return bobaSepolia;
+    case FORMA:
+      return forma;
+    case SHAPE_SEPOLIA:
+      return shapeSepolia;
+    case SHAPE:
+      return shape;
+    case ABSTRACT_TESTNET:
+      return abstractTestnet;
+    case SONIC:
+      return sonic;
+    case SONIC_TESTNET:
+      return sonicTestnet;
+    case SONEIUM:
+      return soneium;
+    case PLASMA:
+      return plasma;
+    case PLASMA_TESTNET:
+      return plasmaTestnet;
+    case WORLDCHAIN:
+      return worldchain;
+    case WORLDCHAIN_SEPOLIA:
+      return worldchainSepolia;
+    case UNICHAIN_SEPOLIA:
+      return unichainSepolia;
+    case UNICHAIN:
+      return unichain;
+    case INK_SEPOLIA:
+      return inkSepolia;
+    case INK:
+      return ink;
+    case ABSTRACT:
+      return abstract;
+    case APE_CHAIN:
+      return apeChain;
+    case DYMENSION:
+      return dymension;
+  }
 }
 
 function getAddressExplorerUrl(chain: Chain, address: Address): string | null {
-	const chainData = getChainData(chain);
-	const blockExplorers = chainData.blockExplorers;
-	if (!blockExplorers) {
-		return null;
-	}
-	const defaultBlockExplorer = blockExplorers.default;
-	if (!defaultBlockExplorer) {
-		return null;
-	}
-	return `${defaultBlockExplorer.url}/address/${address}`;
+  const chainData = getChainData(chain);
+  const blockExplorers = chainData.blockExplorers;
+  if (!blockExplorers) {
+    return null;
+  }
+  const defaultBlockExplorer = blockExplorers.default;
+  if (!defaultBlockExplorer) {
+    return null;
+  }
+  return `${defaultBlockExplorer.url}/address/${address}`;
 }
 
 async function getCode(
-	chain: Chain,
-	address: Address,
+  chain: Chain,
+  address: Address,
 ): Promise<Hex | null | undefined> {
-	const endpointUrl = getChainEndpointUrl(chain);
-	if (!endpointUrl) {
-		return undefined;
-	}
-	const chainClient = createPublicClient({
-		chain: getChainData(chain),
-		transport: http(endpointUrl),
-	});
-	try {
-		const code = await chainClient.getCode({
-			address,
-		});
-		return code || null;
-	} catch {
-		return undefined;
-	}
+  const endpointUrl = getChainEndpointUrl(chain);
+  if (!endpointUrl) {
+    return undefined;
+  }
+  const chainClient = createPublicClient({
+    chain: getChainData(chain),
+    transport: http(endpointUrl),
+  });
+  try {
+    const code = await chainClient.getCode({
+      address,
+    });
+    return code || null;
+  } catch {
+    return undefined;
+  }
 }
 
 export {
-	CHAINS,
-	getChainEndpointUrl,
-	getChainName,
-	getChainData,
-	getAddressExplorerUrl,
-	getCode,
+  CHAINS,
+  getChainEndpointUrl,
+  getChainName,
+  getChainData,
+  getAddressExplorerUrl,
+  getCode,
 };
 export type { Chain };
