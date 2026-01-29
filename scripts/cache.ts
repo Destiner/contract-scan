@@ -1,3 +1,6 @@
+import { writeFileSync } from 'fs';
+import { join } from 'path';
+
 import { keccak256, type Address, type Hex } from 'viem';
 
 import addresses from '@/data/addresses.json';
@@ -34,7 +37,9 @@ async function run(): Promise<void> {
       }
     }
   }
-  console.log(JSON.stringify(newCache, null, 2));
+  const cacheFilePath = join(__dirname, '../app/data/cache.json');
+  writeFileSync(cacheFilePath, JSON.stringify(newCache, null, 2) + '\n');
+  console.log(`Cache updated at ${cacheFilePath}`);
 }
 
 run();

@@ -23,3 +23,23 @@ jobs:
 
       - name: Run the script
         run: bun run cache
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet app/data/cache.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: update cache'
+          title: 'chore: update cache'
+          body: 'Automated cache update.'
+          branch: chore/update-cache
+          delete-branch: true
