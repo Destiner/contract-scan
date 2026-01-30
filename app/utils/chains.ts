@@ -69,6 +69,8 @@ import {
   meter,
   mode,
   modeTestnet,
+  monad,
+  monadTestnet,
   moonbaseAlpha,
   neonDevnet,
   neonMainnet,
@@ -150,6 +152,8 @@ const MANTLE = mantle.id;
 const MANTLE_SEPOLIA = mantleSepoliaTestnet.id;
 const MODE = mode.id;
 const MODE_SEPOLIA = modeTestnet.id;
+const MONAD = monad.id;
+const MONAD_TESTNET = monadTestnet.id;
 const BSC = bsc.id;
 const BSC_TESTNET = bscTestnet.id;
 const FANTOM = fantom.id;
@@ -262,6 +266,8 @@ type Chain =
   | typeof MANTLE_SEPOLIA
   | typeof MODE
   | typeof MODE_SEPOLIA
+  | typeof MONAD
+  | typeof MONAD_TESTNET
   | typeof BSC
   | typeof BSC_TESTNET
   | typeof FANTOM
@@ -374,6 +380,8 @@ const CHAINS: Chain[] = [
   MANTLE_SEPOLIA,
   MODE,
   MODE_SEPOLIA,
+  MONAD,
+  MONAD_TESTNET,
   BSC,
   BSC_TESTNET,
   FANTOM,
@@ -530,6 +538,10 @@ function getChainData(chain: Chain): ChainData {
       return mode;
     case MODE_SEPOLIA:
       return modeTestnet;
+    case MONAD:
+      return monad;
+    case MONAD_TESTNET:
+      return monadTestnet;
     case BSC:
       return bsc;
     case BSC_TESTNET:
