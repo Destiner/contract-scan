@@ -27,6 +27,8 @@ import {
   bsc,
   bscTestnet,
   celo,
+  citrea,
+  citreaTestnet,
   cronos,
   cyber,
   cyberTestnet,
@@ -47,6 +49,8 @@ import {
   harmonyOne,
   hedera,
   hederaTestnet,
+  hyperEvm,
+  hyperliquidEvmTestnet,
   immutableZkEvm,
   immutableZkEvmTestnet,
   ink,
@@ -232,6 +236,10 @@ const INK = ink.id;
 const ABSTRACT = abstract.id;
 const APE_CHAIN = apeChain.id;
 const DYMENSION = dymension.id;
+const CITREA = citrea.id;
+const CITREA_TESTNET = citreaTestnet.id;
+const HYPEREVM = hyperEvm.id;
+const HYPEREVM_TESTNET = hyperliquidEvmTestnet.id;
 
 type Chain =
   | typeof ETHEREUM
@@ -345,7 +353,11 @@ type Chain =
   | typeof INK
   | typeof ABSTRACT
   | typeof APE_CHAIN
-  | typeof DYMENSION;
+  | typeof DYMENSION
+  | typeof CITREA
+  | typeof CITREA_TESTNET
+  | typeof HYPEREVM
+  | typeof HYPEREVM_TESTNET;
 
 const CHAINS: Chain[] = [
   ETHEREUM,
@@ -460,6 +472,10 @@ const CHAINS: Chain[] = [
   ABSTRACT,
   APE_CHAIN,
   DYMENSION,
+  CITREA,
+  CITREA_TESTNET,
+  HYPEREVM,
+  HYPEREVM_TESTNET,
 ];
 
 function getChainEndpointUrl(chain: Chain): string | null {
@@ -698,6 +714,14 @@ function getChainData(chain: Chain): ChainData {
       return apeChain;
     case DYMENSION:
       return dymension;
+    case CITREA:
+      return citrea;
+    case CITREA_TESTNET:
+      return citreaTestnet;
+    case HYPEREVM:
+      return hyperEvm;
+    case HYPEREVM_TESTNET:
+      return hyperliquidEvmTestnet;
   }
 }
 
