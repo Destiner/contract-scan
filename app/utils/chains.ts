@@ -95,7 +95,6 @@ import {
   scroll,
   scrollSepolia,
   sei,
-  seiDevnet,
   seiTestnet,
   sepolia,
   shape,
@@ -203,7 +202,6 @@ const CYBER_TESTNET = cyberTestnet.id;
 const REDSTONE = redstone.id;
 const LYCAN = lycan.id;
 const SEI = sei.id;
-const SEI_DEVNET = seiDevnet.id;
 const XAI = xai.id;
 const XAI_TESTNET = xaiTestnet.id;
 const ROLLUX = rollux.id;
@@ -321,7 +319,6 @@ type Chain =
   | typeof REDSTONE
   | typeof LYCAN
   | typeof SEI
-  | typeof SEI_DEVNET
   | typeof XAI
   | typeof XAI_TESTNET
   | typeof ROLLUX
@@ -439,7 +436,6 @@ const CHAINS: Chain[] = [
   REDSTONE,
   LYCAN,
   SEI,
-  SEI_DEVNET,
   XAI,
   XAI_TESTNET,
   ROLLUX,
@@ -648,8 +644,6 @@ function getChainData(chain: Chain): ChainData {
       return lycan;
     case SEI:
       return sei;
-    case SEI_DEVNET:
-      return seiDevnet;
     case XAI:
       return xai;
     case XAI_TESTNET:
