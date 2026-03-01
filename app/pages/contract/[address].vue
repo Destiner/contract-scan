@@ -154,6 +154,20 @@ watch(
     immediate: true,
   },
 );
+async function fetchCodeHashWithRetries(chain: Chain): Promise<void> {
+  const maxAttempts = 3;
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    const codeHash = await getCodeHash(chain);
+    if (codeHash !== undefined) {
+      codeHashes.value[chain] = codeHash;
+      return;
+    }
+    if (attempt < maxAttempts - 1) {
+      continue;
+    }
+    codeHashes.value[chain] = undefined;
+  }
+}
 async function fetchCode(): Promise<void> {
   codeHashes.value = {};
   // Get cached code first
@@ -165,23 +179,21 @@ async function fetchCode(): Promise<void> {
     const codeHash = cachedCodeHashes[chain];
     codeHashes.value[chain] = codeHash;
   }
-  // Split chains into batches to query contract code in parallel
-  const batchSize = 10;
-  const batchedChains: Chain[][] = [];
-  for (let i = 0; i < chains.value.length; i += batchSize) {
-    batchedChains.push(
-      chains.value.slice(i, i + batchSize).map((chain) => chain.id),
-    );
+  // Fetch contract code with a concurrency pool
+  const concurrency = 10;
+  const pending = CHAINS.filter((chain) => !(chain in codeHashes.value));
+  let index = 0;
+  async function next(): Promise<void> {
+    while (index < pending.length) {
+      const chain = pending[index++]!;
+      await fetchCodeHashWithRetries(chain);
+    }
   }
-  // Fetch contract code
-  for (const batch of batchedChains) {
-    await Promise.all(
-      batch.map(async (chain) => {
-        const codeHash = await getCodeHash(chain);
-        codeHashes.value[chain] = codeHash;
-      }),
-    );
-  }
+  const workers = Array.from(
+    { length: Math.min(concurrency, pending.length) },
+    () => next(),
+  );
+  await Promise.all(workers);
 }
 </script>
 

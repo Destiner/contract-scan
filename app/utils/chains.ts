@@ -730,7 +730,7 @@ async function getCode(
   }
   const chainClient = createPublicClient({
     chain: getChainData(chain),
-    transport: http(endpointUrl),
+    transport: http(endpointUrl, { timeout: 30_000 }),
   });
   try {
     const code = await chainClient.getCode({
