@@ -63,7 +63,6 @@ import {
   lineaSepolia,
   lukso,
   luksoTestnet,
-  lycan,
   lyra,
   mainnet,
   manta,
@@ -108,7 +107,6 @@ import {
   unichain,
   unichainSepolia,
   wanchain,
-  wanchainTestnet,
   worldchain,
   worldchainSepolia,
   xai,
@@ -200,7 +198,6 @@ const NEON_DEVNET = neonDevnet.id;
 const CYBER = cyber.id;
 const CYBER_TESTNET = cyberTestnet.id;
 const REDSTONE = redstone.id;
-const LYCAN = lycan.id;
 const SEI = sei.id;
 const XAI = xai.id;
 const XAI_TESTNET = xaiTestnet.id;
@@ -210,7 +207,6 @@ const SAPPHIRE_TESTNET = sapphireTestnet.id;
 const SYSCOIN = syscoin.id;
 const TARAXA = taraxa.id;
 const WANCHAIN = wanchain.id;
-const WANCHAIN_TESTNET = wanchainTestnet.id;
 const ZILLIQA = zilliqa.id;
 const LYRA = lyra.id;
 const SEI_TESTNET = seiTestnet.id;
@@ -317,7 +313,6 @@ type Chain =
   | typeof CYBER
   | typeof CYBER_TESTNET
   | typeof REDSTONE
-  | typeof LYCAN
   | typeof SEI
   | typeof XAI
   | typeof XAI_TESTNET
@@ -327,7 +322,6 @@ type Chain =
   | typeof SYSCOIN
   | typeof TARAXA
   | typeof WANCHAIN
-  | typeof WANCHAIN_TESTNET
   | typeof ZILLIQA
   | typeof LYRA
   | typeof SEI_TESTNET
@@ -434,7 +428,6 @@ const CHAINS: Chain[] = [
   CYBER,
   CYBER_TESTNET,
   REDSTONE,
-  LYCAN,
   SEI,
   XAI,
   XAI_TESTNET,
@@ -444,7 +437,6 @@ const CHAINS: Chain[] = [
   SYSCOIN,
   TARAXA,
   WANCHAIN,
-  WANCHAIN_TESTNET,
   ZILLIQA,
   LYRA,
   SEI_TESTNET,
@@ -640,8 +632,6 @@ function getChainData(chain: Chain): ChainData {
       return cyberTestnet;
     case REDSTONE:
       return redstone;
-    case LYCAN:
-      return lycan;
     case SEI:
       return sei;
     case XAI:
@@ -660,8 +650,6 @@ function getChainData(chain: Chain): ChainData {
       return taraxa;
     case WANCHAIN:
       return wanchain;
-    case WANCHAIN_TESTNET:
-      return wanchainTestnet;
     case ZILLIQA:
       return zilliqa;
     case LYRA:
