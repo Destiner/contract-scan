@@ -27,6 +27,8 @@ import {
   bsc,
   bscTestnet,
   celo,
+  citrea,
+  citreaTestnet,
   cronos,
   cyber,
   cyberTestnet,
@@ -47,6 +49,8 @@ import {
   harmonyOne,
   hedera,
   hederaTestnet,
+  hyperEvm,
+  hyperliquidEvmTestnet,
   immutableZkEvm,
   immutableZkEvmTestnet,
   ink,
@@ -91,7 +95,6 @@ import {
   scroll,
   scrollSepolia,
   sei,
-  seiDevnet,
   seiTestnet,
   sepolia,
   shape,
@@ -199,7 +202,6 @@ const CYBER_TESTNET = cyberTestnet.id;
 const REDSTONE = redstone.id;
 const LYCAN = lycan.id;
 const SEI = sei.id;
-const SEI_DEVNET = seiDevnet.id;
 const XAI = xai.id;
 const XAI_TESTNET = xaiTestnet.id;
 const ROLLUX = rollux.id;
@@ -232,6 +234,10 @@ const INK = ink.id;
 const ABSTRACT = abstract.id;
 const APE_CHAIN = apeChain.id;
 const DYMENSION = dymension.id;
+const CITREA = citrea.id;
+const CITREA_TESTNET = citreaTestnet.id;
+const HYPEREVM = hyperEvm.id;
+const HYPEREVM_TESTNET = hyperliquidEvmTestnet.id;
 
 type Chain =
   | typeof ETHEREUM
@@ -313,7 +319,6 @@ type Chain =
   | typeof REDSTONE
   | typeof LYCAN
   | typeof SEI
-  | typeof SEI_DEVNET
   | typeof XAI
   | typeof XAI_TESTNET
   | typeof ROLLUX
@@ -345,7 +350,11 @@ type Chain =
   | typeof INK
   | typeof ABSTRACT
   | typeof APE_CHAIN
-  | typeof DYMENSION;
+  | typeof DYMENSION
+  | typeof CITREA
+  | typeof CITREA_TESTNET
+  | typeof HYPEREVM
+  | typeof HYPEREVM_TESTNET;
 
 const CHAINS: Chain[] = [
   ETHEREUM,
@@ -427,7 +436,6 @@ const CHAINS: Chain[] = [
   REDSTONE,
   LYCAN,
   SEI,
-  SEI_DEVNET,
   XAI,
   XAI_TESTNET,
   ROLLUX,
@@ -460,6 +468,10 @@ const CHAINS: Chain[] = [
   ABSTRACT,
   APE_CHAIN,
   DYMENSION,
+  CITREA,
+  CITREA_TESTNET,
+  HYPEREVM,
+  HYPEREVM_TESTNET,
 ];
 
 function getChainEndpointUrl(chain: Chain): string | null {
@@ -632,8 +644,6 @@ function getChainData(chain: Chain): ChainData {
       return lycan;
     case SEI:
       return sei;
-    case SEI_DEVNET:
-      return seiDevnet;
     case XAI:
       return xai;
     case XAI_TESTNET:
@@ -698,6 +708,14 @@ function getChainData(chain: Chain): ChainData {
       return apeChain;
     case DYMENSION:
       return dymension;
+    case CITREA:
+      return citrea;
+    case CITREA_TESTNET:
+      return citreaTestnet;
+    case HYPEREVM:
+      return hyperEvm;
+    case HYPEREVM_TESTNET:
+      return hyperliquidEvmTestnet;
   }
 }
 
