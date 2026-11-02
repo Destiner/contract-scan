@@ -6,6 +6,8 @@ Cross-chain smart contract search
 
 For a given address, ContractScan pulls the bytecode on each supported chain. If there is bytecode, it will mark the contract as deployed on that chain. It will also compare the bytecode from all chains to see if they are the same.
 
+For tokenized stocks, [Tokenform's Apple records](https://tokenform.sh/stocks/apple) distinguish issuer-specific instruments and their chain-specific addresses. Choose an instrument and a deployment on an EVM chain supported here, then inspect its address with ContractScan. Bytecode presence or equality does not establish issuer identity, backing or current support.
+
 Supports 100+ EVM chains.
 
 Uses `viem` as a source of public RPCs and block explorer links.
