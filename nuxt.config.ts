@@ -64,6 +64,15 @@ export default defineNuxtConfig({
     },
   },
 
+  nitro: {
+    // The older preset uses Workers Sites instead of the ASSETS binding.
+    compatibilityDate: {
+      default: '2024-09-14',
+      cloudflare_workers: '2024-09-19',
+    },
+    cloudflare: { deployConfig: false, nodeCompat: true },
+  },
+
   modules: ['@nuxt/eslint'],
   compatibilityDate: '2024-09-14',
 });

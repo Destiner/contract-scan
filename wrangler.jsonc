@@ -1,0 +1,15 @@
+{
+  "$schema": "https://unpkg.com/wrangler@4.167.0/config-schema.json",
+  "name": "contract-scan",
+  "account_id": "94540d71e20e27bc2f813bbd79ced3e1",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat", "no_nodejs_compat_v2"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": ".output/public",
+    "binding": "ASSETS",
+    "html_handling": "none",
+  },
+}

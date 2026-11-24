@@ -3,5 +3,7 @@ node_modules/
 .nuxt/
 .output/
 .vercel
+.wrangler/
+.dev.vars*
 
 .env.local

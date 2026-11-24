@@ -20,6 +20,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build --dotenv .env.local",
+    "build:worker": "nuxt build --preset cloudflare_module --dotenv /dev/null",
     "dev": "nuxt dev --dotenv .env.local",
     "generate": "nuxt generate",
     "cache": "bun scripts/cache.ts",

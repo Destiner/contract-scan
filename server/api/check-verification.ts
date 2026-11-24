@@ -24,7 +24,10 @@ interface GetSourceCodeResponse {
 }
 
 export default defineEventHandler(async (event) => {
-  const etherscanApiKey = process.env.ETHERSCAN_API_KEY;
+  const workerEnv = event.context._platform?.cloudflare?.env;
+  const etherscanApiKey = workerEnv
+    ? workerEnv.ETHERSCAN_API_KEY
+    : process.env.ETHERSCAN_API_KEY;
 
   if (!etherscanApiKey) {
     return {
